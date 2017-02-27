@@ -1,0 +1,10 @@
+swagger: 2.0
+definitions:
+  CompanyItem:
+    description: 公司基本对象
+    type: object
+    properties:
+      companyName:
+        type: string
+      companyCode:
+        type: string

@@ -1,0 +1,22 @@
+swagger: 2.0
+paths:
+  search: #/company/item/search:
+    get:
+      summary: 获取公司名称和代码
+      operationId: getCompanyInfo
+      parameters:
+        - name: keyword
+          required: true
+          type: string
+          in: query
+          description: keyword
+      responses:
+        '200':
+          description: 公司名称和代码
+          schema:
+            type: array
+            items:
+              $ref: '../models/company-response.yaml#/definitions/CompanyItem'
+      tags:
+        - Company
+

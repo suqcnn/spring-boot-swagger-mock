@@ -1,0 +1,26 @@
+swagger: 2.0
+info:
+  title: SBSM API
+  description: Spring boot swagger mock API
+  version: 1.0
+host: localhost:8080
+schemes:
+  - http
+  - https
+tags:
+  - name: Company
+    description: 公司
+produces:
+  - application/json
+securityDefinitions:
+  X-Access-Token:
+    type: apiKey
+    name: X-Access-Token
+    in: header
+security:
+  - X-Access-Token: []
+paths:
+  #获取公司名称和代码
+  /company/item/search:
+    $ref: '../apis/company.item.yaml#/paths/search'
+

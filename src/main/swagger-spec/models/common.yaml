@@ -1,0 +1,27 @@
+swagger: 2.0
+definitions:
+  Response:
+    description: general Response object
+    type: object
+    properties:
+      code:
+        description: return code
+        type: integer
+        format: int32
+      message:
+        description: return message
+        type: string
+      result:
+        description: |
+          Result may be related with business
+        type: string
+  Tuple2:
+    description: 二元字符组
+    type: object
+    properties:
+      first:
+        description: first element
+        type: string
+      second:
+        description: second element
+        type: string

@@ -1,0 +1,6 @@
+xplat:
+  activemq:
+    enabled: false
+  fixture:
+    model-packages:
+      - 'classpath*:com/yifanyou/sbsm/app/common/model/**/*.class'

@@ -1,0 +1,99 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Spring boot swagger mock API",
+    "version" : "1.0",
+    "title" : "Spring boot swagger mock API"
+  },
+  "host" : "localhost:8080",
+  "tags" : [ {
+    "name" : "Company",
+    "description" : "公司"
+  } ],
+  "schemes" : [ "http", "https" ],
+  "produces" : [ "application/json" ],
+  "security" : [ {
+    "X-Access-Token" : [ ]
+  } ],
+  "paths" : {
+    "/company/item/search" : {
+      "get" : {
+        "tags" : [ "Company" ],
+        "summary" : "获取公司名称和代码",
+        "operationId" : "getCompanyInfo",
+        "parameters" : [ {
+          "name" : "keyword",
+          "in" : "query",
+          "description" : "keyword",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "公司名称和代码",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CompanyItem"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "X-Access-Token" : {
+      "type" : "apiKey",
+      "name" : "X-Access-Token",
+      "in" : "header"
+    }
+  },
+  "definitions" : {
+    "Tuple2" : {
+      "type" : "object",
+      "properties" : {
+        "first" : {
+          "type" : "string",
+          "description" : "first element"
+        },
+        "second" : {
+          "type" : "string",
+          "description" : "second element"
+        }
+      },
+      "description" : "二元字符组"
+    },
+    "Response" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "return code"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "return message"
+        },
+        "result" : {
+          "type" : "string",
+          "description" : "Result may be related with business\n"
+        }
+      },
+      "description" : "general Response object"
+    },
+    "CompanyItem" : {
+      "type" : "object",
+      "properties" : {
+        "companyName" : {
+          "type" : "string"
+        },
+        "companyCode" : {
+          "type" : "string"
+        }
+      },
+      "description" : "公司基本对象"
+    }
+  }
+}
